@@ -1,0 +1,125 @@
+extends layout 
+block content 
+
+    .w3-card-4
+        header.w3-container.w3-purple
+            h2 Persom Form Update
+        form.w3-container(method="POST" action="/pessoas/edit")
+            fieldset
+                legend Metadata
+                label Id
+                input.w3-input.w3-round(type="text" name="id" value=p.id readonly)
+                label Name
+                input.w3-input.w3-round(type="text" name="nome" value=p.nome)
+                label Sexo
+                select.w3-select.w3-round(name="sexo")
+                    option M
+                    option F
+                    option Outro
+                label Idade
+                input.w3-input.w3-round(type="int" name="idade" value=p.idade)
+                label Morada - Cidade
+                input.w3-input.w3-round(type="text" name="morada" value=p.morada.cidade)
+                label Morada - Distrito
+                input.w3-input.w3-round(type="text" name="morada" value=p.morada.distrito)
+                label BI
+                input.w3-input.w3-round(type="int" name="bi" value=p.bi)
+                label Profissão
+                input.w3-input.w3-round(type="text" name="profissao" value=p.profissao)
+                label Partido Político - Abreviatura
+                input.w3-input.w3-round(type="text" name="partido_politico" value=p.partido_politico.party_abbr)
+                label Partido Político - Nome
+                input.w3-input.w3-round(type="text" name="partido_politico" value=p.partido_politico.party_name)
+                label Religião
+                input.w3-input.w3-round(type="text" name="religiao" value=p.religiao)
+                label Desportos
+                for desporto in p.desportos
+                    input.w3-input.w3-round(type="text" name="desportos" value=desporto)
+                label Animais
+                for animal in p.animais
+                    input.w3-input.w3-round(type="text" name="animais" value=animal)
+                label Figuras Públicas
+                for figura in p.figura_publica_pt
+                    input.w3-input.w3-round(type="text" name="figura_publica_pt" value=figura)
+                label Marca Carro
+                input.w3-input.w3-round(type="text" name="marca_carro" value=p.marca_carro)
+                label Destinos Favoritos
+                for destino in p.destinos_favoritos
+                    input.w3-input.w3-round(type="text" name="destinos_favoritos" value=destino)
+                label Comida Favorita
+                input.w3-input.w3-round(type="text" name="comida_favorita" value=p.comida_favorita)
+                .w3-container 
+                    fieldset.w3-margin 
+                        if p.atributos.fumador
+                            input.w3-check(type="checkbox" name="Fumador" value=p.atributos.fumador checked)
+                        else
+                            input.w3-check(type="checkbox" name="Fumador" value=p.atributos.fumador)
+                        label Fumador
+                        if p.atributos.gosta_cinema
+                            input.w3-check(type="checkbox" name="Gosta Cinema" value=p.atributos.gosta_cinema checked)
+                        else
+                            input.w3-check(type="checkbox" name="Gosta Cinema" value=p.atributos.gosta_cinema)
+                        label Gosta Cinema
+                        if p.atributos.gosta_viajar
+                            input.w3-check(type="checkbox" name="Gosta Viajar" value=p.atributos.gosta_viajar checked)
+                        else
+                            input.w3-check(type="checkbox" name="Gosta Viajar" value=p.atributos.gosta_viajar)
+                        label Gosta Viajar
+                        if p.atributos.gosta_musica
+                            input.w3-check(type="checkbox" name="Gosta Música" value=p.atributos.gosta_musica checked)
+                        else
+                            input.w3-check(type="checkbox" name="Gosta Música" value=p.atributos.gosta_musica)
+                        label Gosta Música
+                        if p.atributos.gosta_leitura
+                            input.w3-check(type="checkbox" name="Gosta Leitura" value=p.atributos.gosta_leitura checked)
+                        else
+                            input.w3-check(type="checkbox" name="Gosta Leitura" value=p.atributos.gosta_leitura)
+                        label Gosta Leitura
+                        if p.atributos.gosta_comer
+                            input.w3-check(type="checkbox" name="Gosta Comer" value=p.atributos.gosta_comer checked)
+                        else
+                            input.w3-check(type="checkbox" name="Gosta Comer" value=p.atributos.gosta_comer)
+                        label Gosta Comer
+                        if p.atributos.gosta_cafe
+                            input.w3-check(type="checkbox" name="Gosta Café" value=p.atributos.gosta_cafe checked)
+                        else
+                            input.w3-check(type="checkbox" name="Gosta Café" value=p.atributos.gosta_cafe)
+                        label Gosta Café
+                        if p.atributos.gosta_cerveja
+                            input.w3-check(type="checkbox" name="Gosta Cerveja" value=p.atributos.gosta_cerveja checked)
+                        else
+                            input.w3-check(type="checkbox" name="Gosta Cerveja" value=p.atributos.gosta_cerveja)
+                        label Gosta Cerveja
+                        if p.atributos.gosta_vinho
+                            input.w3-check(type="checkbox" name="Gosta Vinho" value=p.atributos.gosta_vinho checked)
+                        else
+                            input.w3-check(type="checkbox" name="Gosta Vinho" value=p.atributos.gosta_vinho)
+                        label Gosta Vinho
+                        if p.atributos.gosta_cachaca
+                            input.w3-check(type="checkbox" name="Gosta Cachaça" value=p.atributos.gosta_cachaca checked)
+                        else
+                            input.w3-check(type="checkbox" name="Gosta Cachaça" value=p.atributos.gosta_cachaca)
+                        label Gosta Cachaça
+                        if p.atributos.gosta_animais_estimacao
+                            input.w3-check(type="checkbox" name="Gosta Animais de Estimação" value=p.atributos.gosta_animais_estimacao checked)
+                        else
+                            input.w3-check(type="checkbox" name="Gosta Animais de Estimação" value=p.atributos.gosta_animais_estimacao)
+                        label Gosta Animais de Estimação
+                        if p.atributos.gosta_dancar
+                            input.w3-check(type="checkbox" name="Gosta Dançar" value=p.atributos.gosta_dancar checked)
+                        else
+                            input.w3-check(type="checkbox" name="Gosta Dançar" value=p.atributos.gosta_dancar)
+                        label Gosta Dançar
+                        if p.atributos.acorda_cedo
+                            input.w3-check(type="checkbox" name="Acorda Cedo" value=p.atributos.acorda_cedo checked)
+                        else
+                            input.w3-check(type="checkbox" name="Acorda Cedo" value=p.atributos.acorda_cedo)
+                        label Acorda Cedo
+                        
+            button.w3-btn.w3-purple.w3-mb-2(type="submit") Update
+               
+        footer.w3-container.w3-purple
+            h5 Generated by Vasco Matos in #{d} - [#[a(href="/") Return]]
+                
+            
+            </div>
